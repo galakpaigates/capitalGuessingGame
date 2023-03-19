@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const randomOptions4 = document.querySelector('.randomOptions4')
 
+    const randomOptionsDiv = document.querySelector('.randomOptionsDiv')
+
     var capitalsList = [
         {country: 'Afghanistan', capital: 'Kabul'},
         {country: 'Albania', capital: 'Tirana (Tirane)'},
@@ -218,11 +220,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     randomCapitalDiv.innerHTML = `${randomCountry.capital}`
 
-    randomOptions1.innerHTML = `<h4>${randomCountry.country}</h4>`
+    var randomCountry1 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    randomOptions2.innerHTML = `<h4>${randomCountry.country}</h4>`
+    var randomCountry2 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    randomOptions3.innerHTML = `<h4>${randomCountry.country}</h4>`
+    var randomCountry3 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    randomOptions4.innerHTML = `<h4>${randomCountry.country}</h4>`
+    var options = [randomCountry1, randomCountry2, randomCountry3, randomCountry.country]
+
+    options.sort(function() {
+        return 0.5 - Math.random()
+    })
+
+    for (let i = 0; i < options.length; i++) {
+        const div = document.createElement("div")
+
+        div.innerText = options[i]
+
+        randomOptionsDiv.appendChild(div)
+
+        console.log(div)
+    }
+
+    console.log(options)
 })

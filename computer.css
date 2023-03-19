@@ -54,10 +54,7 @@ main {
     max-height: 150px;
 }
 
-.randomOptions1,
-.randomOptions2,
-.randomOptions3,
-.randomOptions4 {
+.randomOptionsDiv div {
     text-align: center;
     color: white;
     font-weight: 1000;
