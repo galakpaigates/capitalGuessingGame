@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const randomCapitalDiv = document.querySelector('.randomCapitalDiv')
 
+    const randomOptions1 = document.querySelector('.randomOptions1')
+
+    const randomOptions2 = document.querySelector('.randomOptions2')
+
+    const randomOptions3 = document.querySelector('.randomOptions3')
+
+    const randomOptions4 = document.querySelector('.randomOptions4')
+
     var capitalsList = [
         {country: 'Afghanistan', capital: 'Kabul'},
         {country: 'Albania', capital: 'Tirana (Tirane)'},
@@ -199,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {country: 'Vatican City', capital: 'Vatican City'},
         {country: 'Venezuela', capital: 'Caracas'},
         {country: 'Vietnam', capital: 'Hanoi'},
-        {country: 'Wales', capital: '    Cardiff'},
+        {country: 'Wales', capital: 'Cardiff'},
         {country: 'Yemen', capital: "Sana'a"},
         {country: 'Zambia', capital: "Lusaka"},
         {country: 'Zimbabwe', capital: 'Harare'}
@@ -210,16 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     randomCapitalDiv.innerHTML = `${randomCountry.capital}`
 
-    var optionsCapitals = [
-        `${randomCountry.capital}`
-    ]
+    randomOptions1.innerHTML = `<h4>${randomCountry.country}</h4>`
 
-    var optionsCapitals = []
+    randomOptions2.innerHTML = `<h4>${randomCountry.country}</h4>`
 
-    for (let i = 0; i < 3; i++) {
-        const randomCapitalOption = Math.floor(Math.random() * capitalsList.length)
-        const capitalOptions = capitalsList.slice(randomCapitalOption)
-    }
+    randomOptions3.innerHTML = `<h4>${randomCountry.country}</h4>`
 
-    console.log(randomCountry.country)
+    randomOptions4.innerHTML = `<h4>${randomCountry.country}</h4>`
 })

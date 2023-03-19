@@ -15,7 +15,10 @@
     cursor: pointer;
 }
 
-.randomOptions:active {
+.randomOptions1:active,
+.randomOptions2:active,
+.randomOptions3:active,
+.randomOptions4:active {
     opacity: 0.6;
 }
 
@@ -51,7 +54,10 @@ main {
     max-height: 150px;
 }
 
-.randomOptions {
+.randomOptions1,
+.randomOptions2,
+.randomOptions3,
+.randomOptions4 {
     text-align: center;
     color: white;
     font-weight: 1000;
