@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var randomCountry3 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    var options = [randomCountry1, randomCountry2, randomCountry3, randomCountry.country]
+    var options = [randomCountry1, randomCountry2, randomCountry.country, randomCountry3]
 
     options.sort(function() {
         return 0.5 - Math.random()
@@ -238,9 +238,23 @@ document.addEventListener('DOMContentLoaded', function() {
         div.innerText = options[i]
 
         randomOptionsDiv.appendChild(div)
-
-        console.log(div)
     }
 
-    console.log(options)
+    randomOptionsDiv.addEventListener('click', function(event) {
+        var score = 0
+
+        var tries = 0
+
+        const scoreDiv = document.querySelector('.scoreDiv')
+
+        const triesDiv = document.querySelector('.triesDiv')
+
+        const userChoice = event.target.textContent;
+
+        if (userChoice === randomCountry.country) {
+            scoreDiv.innerHTML = `Score = ${score+=1}`
+        }
+
+        triesDiv.innerHTML = `Tries = ${tries+=1}`
+    })
 })

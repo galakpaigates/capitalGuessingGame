@@ -15,10 +15,7 @@
     cursor: pointer;
 }
 
-.randomOptions1:active,
-.randomOptions2:active,
-.randomOptions3:active,
-.randomOptions4:active {
+.randomOptionsDiv div:active {
     opacity: 0.6;
 }
 

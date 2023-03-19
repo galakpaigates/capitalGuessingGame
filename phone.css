@@ -10,7 +10,7 @@
     cursor: default;
 }
 
-* div:hover {
+.randomOptionsDiv div:hover {
     cursor: pointer;
 }
 
@@ -46,7 +46,7 @@ main {
     max-height: 150px;
 }
 
-.randomOptions {
+.randomOptionsDiv div {
     text-align: center;
     color: white;
     font-weight: 1000;
@@ -58,6 +58,10 @@ main {
     padding: 4%;
     width: 85%;
     border-radius: 10px;
+}
+
+.randomOptionsDiv div:active {
+    opacity: 0.6;
 }
 
 .footerDiv {
