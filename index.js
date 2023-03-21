@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {country: 'Monaco', capital: 'Monaco'},
         {country: 'Mongolia', capital: 'Ulaanbaatar'},
         {country: 'Montenegro', capital: 'Podgorica'},
-        {country: 'Morocco	', capital: 'Rabat'},
+        {country: 'Morocco', capital: 'Rabat'},
         {country: 'Mozambique', capital: 'Maputo'},
         {country: 'Myanmar (Burma)', capital: 'Nay Pyi Taw'},
         {country: 'Namibia', capital: 'Windhoek'},
@@ -205,45 +205,58 @@ document.addEventListener('DOMContentLoaded', function() {
         {country: 'Zambia', capital: "Lusaka"},
         {country: 'Zimbabwe', capital: 'Harare'}
     ]
-
+    
+    // Declaration of Score variable to keep track of the number of correct answer, and Tries variable to keep track of the number of attempts the user makes.
     var score = 0
     var tries = 0
 
     getRandomCountryCapital()
 
+    // Declaration of funciton to generate the random country and capital from the array above and append them to the Body of the Page using the for loop.
     function getRandomCountryCapital() {
+        // Selecting the Particular Random Country and Capital that the User will have to guess from the array and storing it in the variable, randomCountry.
         var randomCountry = capitalsList[Math.floor(Math.random() * capitalsList.length)]
 
+        // Adding the Capital of the Random Country generated from the Previous line of code to the Html page.
         randomCapitalDiv.innerHTML = `${randomCountry.capital}`
 
+    // Gemerating some other random countries for the User to choose from and storing each of them inside a variable.
         var randomCountry1 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
         var randomCountry2 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
         var randomCountry3 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
-
+    
+        // Declaration of a object called Options the has the Correct Country and the other randomly generated Countries above to add to the Options.
         var options = [randomCountry1, randomCountry2, randomCountry.country, randomCountry3]
 
+        // This Function randomly sorts the object declared above changing the order it will appear in on the HTML page randomly and return the value after the sorting.
         options.sort(function() {
             return 0.5 - Math.random()
         })
 
+        // This LOOP goes through the options object declared above per the length of the object's content, and appends to the randomOptionsDiv each of object creating the options for the user to choose from.
         for (let i = 0; i < options.length; i++) {
+            // Creates a div element each time the loop runs and assign a variable to it a call later.
             const div = document.createElement("div")
                 
+            // Updates the Content of the 'div' created above with the Current value of 'i' which would be one of the randomly sorted countries from the options object.
             div.innerText = options[i]
 
+            // Appends the current value of 'div' to the HTML page.
             randomOptionsDiv.appendChild(div)
         }
 
         randomOptionsDiv.addEventListener('click', function checkClick(event) {
+            // Targeting the Particular Element that was clicked on the Page and assigning a variable to it.
             const userChoice = event.target;
 
             if (userChoice.parentElement.className == "mainBody") {
-                alert("Please Choose from the List of Countries Below! \nGOOD LUCK!!!")
+                // Added Specificity to the type of element the user should click on. Only if is it one of the Divs created by the 'for' loop inside the randomCapitalsDiv
             }
 
             else if (userChoice.innerText != randomCountry.country.toUpperCase()) {
+                //Changing the User's Choice Background Color to Red because their choice is correct and adding only the tries because the User's Choice was not the correct answer but they attempted.
                 userChoice.style.backgroundColor = "red"
 
                 document.getElementById('triesDiv').innerHTML = tries+=1;
@@ -256,12 +269,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             else if (userChoice.innerText === randomCountry.country.toUpperCase()) {
+                //Changing the User's Choice Background Color to Green because their choice is correct and adding the score and tries.
                 userChoice.style.backgroundColor = "limegreen";
                 
                 document.getElementById('triesDiv').innerHTML = tries+=1;
                 
                 document.getElementById('scoreDiv').innerHTML = score+=1;
 
+                //Clearing the Randomly Generated Capitals and Rerunning the Function to Generate new ones.
                 setTimeout(()=> {
                     randomCapitalDiv.innerHTML = "";
                     randomOptionsDiv.innerHTML = "";
