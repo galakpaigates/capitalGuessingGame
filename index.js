@@ -1,14 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const randomCapitalDiv = document.querySelector('.randomCapitalDiv')
 
-    const randomOptions1 = document.querySelector('.randomOptions1')
-
-    const randomOptions2 = document.querySelector('.randomOptions2')
-
-    const randomOptions3 = document.querySelector('.randomOptions3')
-
-    const randomOptions4 = document.querySelector('.randomOptions4')
-
     const randomOptionsDiv = document.querySelector('.randomOptionsDiv')
 
     var capitalsList = [
@@ -198,10 +190,9 @@ document.addEventListener('DOMContentLoaded', function() {
         {country: 'Turkmenistan', capital: 'Ashgabat'},
         {country: 'Tuvalu', capital: 'Funafuti'},
         {country: 'Uganda', capital: 'Kampala'},
-        {country: 'Ukraine', capital: 'Kyiv '},
+        {country: 'Ukraine', capital: 'Kyiv'},
         {country: 'United Arab Emirates', capital: 'Abu Dhabi'},
         {country: 'United Kingdom', capital: 'London'},
-        {country: 'United States', capital: ''},
         {country: 'United States', capital: 'Washington D.C.'},
         {country: 'Uruguay', capital: 'Montevideo'},
         {country: 'Uzbekistan', capital: 'Tashkent'},
@@ -213,48 +204,70 @@ document.addEventListener('DOMContentLoaded', function() {
         {country: 'Yemen', capital: "Sana'a"},
         {country: 'Zambia', capital: "Lusaka"},
         {country: 'Zimbabwe', capital: 'Harare'}
-        
     ]
 
-    var randomCountry = capitalsList[Math.floor(Math.random() * capitalsList.length)]
+    var score = 0
+    var tries = 0
 
-    randomCapitalDiv.innerHTML = `${randomCountry.capital}`
+    getRandomCountryCapital()
 
-    var randomCountry1 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
+    function getRandomCountryCapital() {
+        var randomCountry = capitalsList[Math.floor(Math.random() * capitalsList.length)]
 
-    var randomCountry2 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
+        randomCapitalDiv.innerHTML = `${randomCountry.capital}`
 
-    var randomCountry3 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
+        var randomCountry1 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    var options = [randomCountry1, randomCountry2, randomCountry.country, randomCountry3]
+        var randomCountry2 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    options.sort(function() {
-        return 0.5 - Math.random()
-    })
+        var randomCountry3 = capitalsList[Math.floor(Math.random() * capitalsList.length)].country
 
-    for (let i = 0; i < options.length; i++) {
-        const div = document.createElement("div")
+        var options = [randomCountry1, randomCountry2, randomCountry.country, randomCountry3]
 
-        div.innerText = options[i]
+        options.sort(function() {
+            return 0.5 - Math.random()
+        })
 
-        randomOptionsDiv.appendChild(div)
-    }
+        for (let i = 0; i < options.length; i++) {
+            const div = document.createElement("div")
+                
+            div.innerText = options[i]
 
-    randomOptionsDiv.addEventListener('click', function(event) {
-        var score = 0
-
-        var tries = 0
-
-        const scoreDiv = document.querySelector('.scoreDiv')
-
-        const triesDiv = document.querySelector('.triesDiv')
-
-        const userChoice = event.target.textContent;
-
-        if (userChoice === randomCountry.country) {
-            scoreDiv.innerHTML = `Score = ${score+=1}`
+            randomOptionsDiv.appendChild(div)
         }
 
-        triesDiv.innerHTML = `Tries = ${tries+=1}`
-    })
+        randomOptionsDiv.addEventListener('click', function checkClick(event) {
+            const userChoice = event.target;
+
+            if (userChoice.parentElement.className == "mainBody") {
+                alert("Please Choose from the List of Countries Below! \nGOOD LUCK!!!")
+            }
+
+            else if (userChoice.innerText != randomCountry.country.toUpperCase()) {
+                userChoice.style.backgroundColor = "red"
+
+                document.getElementById('triesDiv').innerHTML = tries+=1;
+
+                setTimeout(()=> {
+                    randomCapitalDiv.innerHTML = "";
+                    randomOptionsDiv.innerHTML = "";
+                
+                    getRandomCountryCapital()}, 400)
+            }
+
+            else if (userChoice.innerText === randomCountry.country.toUpperCase()) {
+                userChoice.style.backgroundColor = "limegreen";
+                
+                document.getElementById('triesDiv').innerHTML = tries+=1;
+                
+                document.getElementById('scoreDiv').innerHTML = score+=1;
+
+                setTimeout(()=> {
+                    randomCapitalDiv.innerHTML = "";
+                    randomOptionsDiv.innerHTML = "";
+                
+                    getRandomCountryCapital()}, 400)
+            }
+        })
+    }
 })
