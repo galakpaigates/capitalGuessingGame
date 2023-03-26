@@ -4,26 +4,23 @@
     box-sizing: border-box;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+    outline: none;
+    border: none;
 }
 
 *:hover {
     cursor: default;
 }
 
-* div:hover,
-* ol li:hover {
-    cursor: pointer;
-}
-
-.randomOptionsDiv div:active {
+#randomOptionsDiv button:active {
     opacity: 0.6;
 }
 
-.container {
+#container {
     width: auto;
 }
 
-.headerDiv {
+#headerDiv {
     width: auto;
     background-color: darkcyan;
     color: white;
@@ -31,7 +28,7 @@
     padding: 30px;
     box-shadow: 0px 0px 10px black;
     animation-name: slidedown;
-    animation-duration: 2.2s;
+    animation-duration: 1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
 }
@@ -39,11 +36,11 @@
     0% {transform: translateY(-100px); opacity: -0.5;}
 }
 
-main {
+#mainBody {
     margin: 2%;
 }
 
-.randomCapitalDiv {
+#randomCapitalDiv {
     background-color: indigo;
     width: 75%;
     margin: auto;
@@ -58,15 +55,20 @@ main {
     max-height: 150px;
     animation-name: slideCapital;
     animation-fill-mode: forwards;
-    animation-duration: 2s;
+    animation-duration: 0.8s;
     animation-timing-function: ease-out;
 }
 @keyframes slideCapital {
     0% {transform: translateX(-120px); opacity: 0.5;}
 }
 
-.randomOptionsDiv div {
+#randomOptionsDiv button {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: large;
     color: white;
     font-weight: 1000;
     text-transform: uppercase;
@@ -79,14 +81,15 @@ main {
     border-radius: 10px;
     animation-name: slideCountries;
     animation-fill-mode: forwards;
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-timing-function: ease-out;
+    cursor: pointer;
 }
 @keyframes slideCountries {
     0% {transform: translateY(120px); opacity: 0.7;}
 }
 
-.footerDiv {
+#footerDiv {
     background-color: darkcyan;
     width: auto;
     margin-top: 50px;
@@ -96,14 +99,14 @@ main {
     font-size: large;
     animation-name: scoreTriesBoard;
     animation-fill-mode: forwards;
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 @keyframes scoreTriesBoard {
     0% {transform: translateY(150px); opacity: 0;}
 }
 
-.footerDiv div {
+#footerDiv div {
     display: inline-block;
     background-color: white;
     color: darkcyan;
@@ -117,8 +120,8 @@ main {
     opacity: 0;
     animation-name: scoreTriesSlide;
     animation-fill-mode: forwards;
-    animation-duration: 2s;
-    animation-delay: 3.5s;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
     animation-timing-function: ease-out;
 }
 @keyframes scoreTriesSlide {
