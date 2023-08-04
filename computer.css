@@ -20,6 +20,57 @@
     width: auto;
 }
 
+#gameOverDiv {
+    top: 45%;
+    left: 35%;
+    right: 35%;
+    z-index: 999;
+    padding: 12px;
+    display: none;
+    font-size: x-large;
+    position: absolute;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px #7e7c7c;
+}
+
+#gameOverHeading {
+    margin: 10px;
+    color: crimson;
+    font-weight: 1000;
+}
+
+#gameOverText {
+    margin: 18px;
+    color: #242424;
+    font-weight: 600;
+}
+
+#gameOverDiv button {
+    padding: 10px;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 2px;
+    background-color: #169e16;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+#timerSpan {
+    padding: 12px;
+    background-color: limegreen;
+    color: white;
+    font-weight: 1000;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    font-size: 25px;
+    margin-left: 40%;
+    margin-top: 15px;
+}
+
 #headerDiv {
     width: auto;
     background-color: darkcyan;
@@ -58,9 +109,6 @@
     animation-duration: 0.8s;
     animation-timing-function: ease-out;
 }
-@keyframes slideCapital {
-    0% {transform: translateX(-120px); opacity: 0.5;}
-}
 
 #randomOptionsDiv button {
     text-align: center;
@@ -84,9 +132,6 @@
     animation-duration: 1s;
     animation-timing-function: ease-out;
     cursor: pointer;
-}
-@keyframes slideCountries {
-    0% {transform: translateY(120px); opacity: 0.7;}
 }
 
 #footerDiv {
