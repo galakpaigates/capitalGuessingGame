@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreDiv = document.getElementById('scoreDiv');
     const container = document.getElementById("container");
     const gameOverDiv = document.getElementById("gameOverDiv");
+    const replayGameBtn = document.getElementById("replayGameBtn");
 
     generateRandomCountry();
 
@@ -289,6 +290,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 else {return false}
             }
         }
+
+        if (userChoice.id === "replayGameBtn") {
+            replayGame();
+        }
     })
 
     function startTimer() {
@@ -311,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(timer);
                 gameover();
             }
-        }, 1000);
+        }, 10);
     }
 
     function gameover() {
@@ -324,9 +329,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <span id="gameOverText">You got ${score} of ${tries}</span>
 
-            <button onclick="location.reload()">Replay!</button>
+            <button id="replayGameBtn">Replay!</button>
         `
 
         gameOverDiv.style.display = "block";
+    }
+
+    function replayGame() {
+        score = 0;
+        tries = 0;
+
+        scoreDiv.innerText = score;
+        triesDiv.innerText = tries;
+
+        gameOverDiv.style.display = "none";
+        container.style.pointerEvents = "auto";
+        container.style.opacity = "1";
+
+        timerSpan.style.backgroundColor = "limegreen";
+        timerSpan.style.display = "none";
+
+        randomOptionsDiv.innerHTML = "";
+
+        timerStatus = false;
+
+        generateRandomCountry();
     }
 })

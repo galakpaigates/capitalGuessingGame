@@ -7,6 +7,6 @@ In this Project, galakpaigates will learn, practice and use 'arrays, loops, rand
 Contributor:
   galakpaigates (Jee-do G. Arkoi) Only
   
-  Inspired by: tangaye.
+  Inspired by: tangaye
   
 ## Thanks for Visiting, Testing and Playing this Guessing Game!
