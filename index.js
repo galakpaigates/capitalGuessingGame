@@ -198,7 +198,7 @@ var capitalsList = [
     {country: 'Wales', capital: 'Cardiff'},
     {country: 'Yemen', capital: "Sana'a"},
     {country: 'Zambia', capital: "Lusaka"},
-    {country: 'Zimbabwe', capital: 'Harare'}
+    {country: 'Zimbabwe', capital: 'Harare'},
 ]
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreDiv = document.getElementById('scoreDiv');
     const container = document.getElementById("container");
     const gameOverDiv = document.getElementById("gameOverDiv");
+    const replayBtn = document.getElementById("replayBtn");
 
     generateRandomCountry();
 
@@ -289,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 else {return false}
             }
         }
+        else {userChoice.click();}
     })
 
     function startTimer() {
@@ -318,15 +320,33 @@ document.addEventListener('DOMContentLoaded', function() {
         container.style.pointerEvents = "none";
         container.style.opacity = "0.3";
 
-        gameOverDiv.innerHTML = 
-        `
-            <h2 id="gameOverHeading">Game Over!</h2>
-
-            <span id="gameOverText">You got ${score} of ${tries}</span>
-
-            <button onclick="location.reload()">Replay!</button>
-        `
+        scoreSpan.innerText = score;
+        triesSpan.innerText = tries;
 
         gameOverDiv.style.display = "block";
     }
+    
+    function replay() {
+        score = 0;
+        tries = 0;
+
+        scoreDiv.innerText = score;
+        triesDiv.innerText = tries;
+
+        randomOptionsDiv.innerHTML = "";
+    
+        generateRandomCountry();
+
+        gameOverDiv.style.display = "none";
+        container.style.pointerEvents = "auto";
+        container.style.opacity = "1";
+
+        timerSpan.style.backgroundColor = "limegreen";
+        timerSpan.innerText = "60";
+        timerStatus = false;
+
+        timerSpan.style.display = "none";
+    }
+
+    replayBtn.addEventListener('click', replay);
 })

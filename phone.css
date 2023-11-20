@@ -8,12 +8,28 @@
     font-family: 'Rubik', sans-serif;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url("./controller-backdrop.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 645px) {
+    #randomCapitalDiv {
+        margin: 0.5% auto !important;
+    }
+}
+
 *:hover {
     cursor: default;
 }
 
 #container {
-    width: auto;
+    width: 100vw;
 }
 
 #gameOverDiv {
@@ -26,8 +42,8 @@
     font-size: x-large;
     position: absolute;
     border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px #7e7c7c;
+    background-color: darkcyan;
+    box-shadow: 0px 0px 10px #333131;
 }
 
 #gameOverHeading {
@@ -38,7 +54,7 @@
 
 #gameOverText {
     margin: 18px;
-    color: #242424;
+    color: #ffffff;
     font-weight: 600;
 }
 
@@ -50,7 +66,6 @@
     font-weight: 700;
     border-radius: 2px;
     background-color: #169e16;
-    box-shadow: 0px 0px 5px #000000;
     margin: 12px 0 0 0;
 }
 
@@ -69,7 +84,10 @@
 }
 
 #headerDiv {
-    width: auto;
+    position: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: darkcyan;
     color: white;
     text-transform: uppercase;
@@ -90,14 +108,21 @@
 }
 
 #mainBody {
-    margin: 2%;
+    margin: 7% 0 7% 0;
+    display: grid;
+    grid-template-rows: 15% 1fr;
+    animation: appear forwards 0.5s ease-in;
+}
+@keyframes appear {
+    0% {opacity: 0;}
+    75% {opacity: 1;}
 }
 
 #randomCapitalDiv {
     background-color: indigo;
     width: 75%;
     margin: auto;
-    margin-top: 9%;
+    margin: 10% auto;
     padding: 3.5%;
     border-radius: 10px;
     color: white;
@@ -106,10 +131,7 @@
     text-transform: uppercase;
     max-width: 500px;
     max-height: 150px;
-    animation-name: slideCapital;
-    animation-fill-mode: forwards;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
+    animation-name: slideCapital forwards 0.8s ease-out;
 }
 
 #randomOptionsDiv button {
@@ -141,30 +163,44 @@
 
 #footerDiv {
     background-color: darkcyan;
-    width: auto;
-    padding: 2.5%;
-    margin-top: 10%;
+    max-height: 80px;
     color: white;
+    padding: 7px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -12px 12px #a0a0a0;
     font-weight: bold;
-    box-shadow: 10px 0px 12px black;
     animation-name: scoreTriesBoard;
     animation-fill-mode: forwards;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 }
 @keyframes scoreTriesBoard {
-    0% {transform: translateY(150px); opacity: 0;}
+    0% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
 }
 
 #footerDiv div {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     color: darkcyan;
-    padding: 5%;
+    padding: 21px;
     border-radius: 7px;
     font-weight: bold;
+    font-size: 27px;
     margin: 2.5%;
     width: fit-content;
+    max-height: 40px !important;
     opacity: 0;
     animation-name: scoreTriesSlide;
     animation-fill-mode: forwards;

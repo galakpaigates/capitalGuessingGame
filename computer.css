@@ -12,6 +12,17 @@
     cursor: default;
 }
 
+body {
+    background-image: url("./controller-backdrop.png");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto;
+}
+
+body::before {
+    opacity: 0.5;
+}
+
 #randomOptionsDiv button:active {
     opacity: 0.6;
 }
@@ -27,11 +38,12 @@
     z-index: 999;
     padding: 12px;
     display: none;
+    text-align: center;
     font-size: x-large;
     position: absolute;
     border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px #7e7c7c;
+    background-color: darkcyan;
+    box-shadow: 0px 0px 10px #333131;
 }
 
 #gameOverHeading {
@@ -42,8 +54,9 @@
 
 #gameOverText {
     margin: 18px;
-    color: #242424;
+    color: #ffffff;
     font-weight: 600;
+    text-align: center;
 }
 
 #gameOverDiv button {
@@ -52,9 +65,9 @@
     font-size: 21px;
     cursor: pointer;
     font-weight: 700;
-    border-radius: 2px;
+    border-radius: 10px;
     background-color: #169e16;
-    box-shadow: 0px 0px 5px #000000;
+    box-shadow: 0px 0px 5px #686868;
 }
 
 #timerSpan {
@@ -89,6 +102,12 @@
 
 #mainBody {
     margin: 2%;
+    animation: appear forwards 0.5s ease-in;
+    animation-delay: 5s;
+}
+@keyframes appear {
+    0% {opacity: 0;}
+    75% {opacity: 1;}
 }
 
 #randomCapitalDiv {
@@ -137,8 +156,11 @@
 #footerDiv {
     background-color: darkcyan;
     width: auto;
-    margin-top: 50px;
-    box-shadow: 10px 0px 12px black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px -12px 12px #a0a0a0;
     color: white;
     font-weight: bold;
     font-size: large;
