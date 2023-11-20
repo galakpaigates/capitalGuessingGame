@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(timer);
                 gameover();
             }
-        }, 10);
+        }, 1000);
     }
 
     function gameover() {
