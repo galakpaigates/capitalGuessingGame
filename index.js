@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 else {return false}
             }
         }
-        else {userChoice.click();}
+        else {replay()}
     })
 
     function startTimer() {
